@@ -1,94 +1,82 @@
+import Navbar from './components/Navbar';
 import Image from "next/image";
 import styles from "./page.module.css";
 
 export default function Home() {
   return (
     <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+      <Navbar /> {/* 메뉴바 추가 */}
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+      <main className={styles.main}>
+        <div className={styles.header}>
+          <div className={styles.profile}>
             <Image
               className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="/your-logo.png" // 본인의 로고 이미지로 변경
+              alt="Your Logo"
+              width={200}
+              height={200}
             />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+            <div className={styles.info}>
+              <h2>Junseo Yun</h2>
+              <p>B.S., in Mathematics, UC San Diego</p>
+              <p>La Jolla, California</p>
+              <div className={styles.ctas}>
+                <a
+                  href="junseoyun0822@gmail.com" // 본인의 이메일 주소로 변경
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image
+                    src="/email.png" // 이메일 아이콘 이미지 경로 (필요하면 추가)
+                    alt="Email logo"
+                    width={20}
+                    height={20}
+                  />
+                  Email
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/junseo-yun-71b70a333/" // 본인의 LinkedIn 링크로 변경
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image
+                    src="/linkedin.png" // LinkedIn 로고 이미지 경로
+                    alt="LinkedIn logo"
+                    width={20}
+                    height={20}
+                  />
+                  LinkedIn
+                </a>
+                <a
+                  href="https://github.com/JunseoYun142857" // 본인의 GitHub 링크로 변경
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image
+                    src="/github.png" // GitHub 로고 이미지 경로
+                    alt="GitHub logo"
+                    width={20}
+                    height={20}
+                  />
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className={styles.about}>
+          <h2>About Me</h2>
+          <p>    
+          Hi! My name is Junseo Yun, a freshman studying Mathematics at UC San Diego.
+          I was born in Icheon, South Korea, and lived in Namyangju, South Korea until fifth grade. 
+          In October 2nd, 2016, I moved to Hefei, China, where I completed my high school. 
+          Now, I am excited to be here in San Diego, California. I am planning to join R.O.K.A. in 2025.
+          </p>
         </div>
       </main>
       <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+        <p>© 2024 Junseo Yun</p>
       </footer>
     </div>
   );

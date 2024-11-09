@@ -1,168 +1,89 @@
 .page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
-  font-family: var(--font-geist-sans);
-}
-
-@media (prefers-color-scheme: dark) {
-  .page {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* 내용 왼쪽 정렬 */
 }
 
 .main {
   display: flex;
+  flex-direction: row;
+  justify-content: flex-start; /* 왼쪽 정렬 */
+  max-width: 1200px; /* 최대 너비 조정 */
+  width: 100%;
+  padding: 20px; /* 여백 추가 */
+  margin-left: 10px; /* 메인 콘텐츠를 오른쪽으로 이동 */
+}
+
+.header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px; /* 헤더 하단 여백 추가 */
+  margin-left: 10px; /* 헤더를 오른쪽으로 이동 */
+}
+
+.profile {
+  display: flex;
   flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
+  align-items: flex-start;
+  margin-right: 20px; /* 이미지와 정보 간의 간격 조정 */
+  margin-left: 10px; /* 프로필을 오른쪽으로 이동 */
 }
 
-.main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
-  margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
+.profile img {
+  border-radius: 50%; /* 원형 테두리 */
+  width: 150px; /* 사진 크기 조정 */
+  height: 150px; /* 사진 크기 조정 */
+  object-fit: cover; /* 사진 비율 유지 */
 }
 
-.main li:not(:last-of-type) {
-  margin-bottom: 8px;
-}
-
-.main code {
-  font-family: inherit;
-  background: var(--gray-alpha-100);
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-weight: 600;
+.info {
+  margin-top: 5px; /* 이름과 사진 사이의 간격 감소 */
+  margin-left: 10px; /* 정보를 오른쪽으로 이동 */
 }
 
 .ctas {
+  margin-top: 10px;
   display: flex;
-  gap: 16px;
+  flex-direction: column; /* 세로로 나열 */
+  gap: 10px; /* 링크 간의 간격 조정 */
+  margin-left: 10px; /* CTA를 오른쪽으로 이동 */
+}
+
+.about {
+  max-width: 700px;
+  margin-left: 30px;
+  text-align: left;
+  font-size: 18px; /* 글자 크기 조정 */
+  margin-top: 50px; /* 상단 간격 증가 */
 }
 
 .ctas a {
-  appearance: none;
-  border-radius: 128px;
-  height: 48px;
-  padding: 0 20px;
-  border: none;
-  border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
-  cursor: pointer;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 500;
+  align-items: center; /* 아이콘과 텍스트를 수직으로 정렬 */
 }
 
-a.primary {
-  background: var(--foreground);
-  color: var(--background);
-  gap: 8px;
+.ctas img {
+  width: 20px; /* 아이콘 크기 조정 */
+  height: 20px; /* 아이콘 크기 조정 */
+  margin-right: 5px; /* 아이콘과 텍스트 간의 간격 조정 */
 }
 
-a.secondary {
-  border-color: var(--gray-alpha-200);
-  min-width: 180px;
+/* 여백 추가 */
+.header, .info, .about {
+  margin-top: 30px; /* 상단 여백 추가 */
+}
+
+.info > p {
+  margin-top: 10px;
+  font-size: 15px; /* 글자 크기 조정 */
 }
 
 .footer {
-  grid-row-start: 3;
-  display: flex;
-  gap: 24px;
+  margin-left: 50px; /* 푸터를 오른쪽으로 이동 */
+  margin-top: 290px; /* 푸터 상단 여백 추가 */
 }
 
-.footer a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.footer img {
-  flex-shrink: 0;
-}
-
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-
-  .footer a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-}
-
-@media (max-width: 600px) {
-  .page {
-    padding: 32px;
-    padding-bottom: 80px;
-  }
-
-  .main {
-    align-items: center;
-  }
-
-  .main ol {
-    text-align: center;
-  }
-
-  .ctas {
-    flex-direction: column;
-  }
-
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
-  }
-
-  a.secondary {
-    min-width: auto;
-  }
-
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
+.about p {
+  line-height: 1.5; /* 텍스트 줄 간격 조정 */
 }
